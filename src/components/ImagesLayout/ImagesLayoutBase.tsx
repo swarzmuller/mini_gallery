@@ -8,6 +8,6 @@ export const ImagesLayoutBase = styled.div`
   gap: 20px;
   width: 100%;
   max-width: 1332px;
-  padding: 0 16px;
+  padding: 0 16px 20px;
   margin: 0 auto;
 `;
