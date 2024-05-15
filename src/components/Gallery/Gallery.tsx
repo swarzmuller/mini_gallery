@@ -1,22 +1,17 @@
-import { useContext, useEffect, useState } from "react";
-import { GridSwitcherContext } from "../GridSwitcher";
 import { GalleryBase } from "./GalleryBase";
-import { getList } from "@/api";
+import { CurrentImage } from "./CurrentImage";
+import { GroupsProps } from "./types";
 
-export const Gallery = () => {
-  const [galleryList, setGalleryList] = useState();
-  const { gridValue } = useContext(GridSwitcherContext);
+export const Gallery = ({ groups }: GroupsProps) => {
+  if (!groups) return <div css={{ width: "100%" }}>Loading...</div>;
 
-  useEffect(() => {
-    getList().then((data) => setGalleryList(data));
-  }, []);
-
-  console.log(galleryList);
   return (
-    <GalleryBase value={gridValue}>
-      {/* {galleryList && galleryList?.map((item) => {
-        return <img css={{maxWidth: '100%'}} key={item.id} src={item.urls.regular} alt="" />
-      })} */}
+    <GalleryBase>
+      {groups.map((item, index) => (
+        <div key={index}>
+          <CurrentImage item={item} />
+        </div>
+      ))}
     </GalleryBase>
   );
 };

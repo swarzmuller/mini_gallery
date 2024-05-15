@@ -1,5 +1,7 @@
 import { css } from "@emotion/react";
 
-export const GalleryWrapper = css`
-    width: 100%;
+export const CurrentImage = css`
+    display: block;
+    max-width: 100%;
+    margin-bottom: 10px;
 `
