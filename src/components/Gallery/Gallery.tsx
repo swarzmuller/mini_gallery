@@ -3,7 +3,7 @@ import { CurrentImage } from "./CurrentImage";
 import { GroupsProps } from "./types";
 
 export const Gallery = ({ groups }: GroupsProps) => {
-  if (!groups) return <div css={{ width: "100%" }}>Loading...</div>;
+  if (!groups) return <h1 css={{width: "100%"}}>Loading...</h1>;
 
   return (
     <GalleryBase>

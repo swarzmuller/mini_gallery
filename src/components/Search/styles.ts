@@ -1,9 +1,24 @@
 import { css } from "@emotion/react";
 
+
+export const Search = css`
+  font-size: 18px;
+  margin-top: 5px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
 export const Title = css`
   font-size: 40px;
   font-weight: 700;
   line-height: 1.2;
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
 `;
 
 export const Text = css`
@@ -24,6 +39,10 @@ export const InputContainer = css`
   &:focus-within {
     background-color: #fff;
     box-shadow: 0 0 0 1px #0000001f;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
   }
 `;
 

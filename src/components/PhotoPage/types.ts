@@ -10,7 +10,7 @@ interface Tags {
   title: string;
 }
 
-export interface FotoInfoType {
+export interface FotoInfoTypes {
   user: UserProps;
   views: number;
   downloads: number;

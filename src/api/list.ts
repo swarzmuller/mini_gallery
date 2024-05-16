@@ -1,17 +1,15 @@
 import { CLIENT_ID } from "./constans";
 import api from "./interseptors";
 
-export const getList = async (page: number, query?: string) => {
+const URL_PATH = `/photos/?client_id=${CLIENT_ID}&per_page=30&page=`;
+
+export const getList = async (page: number, query?: string | null) => {
   if (query) {
-    const response = await api.get(
-      `/search/photos/?page=${page}&per_page=30&query=${query}&client_id=${CLIENT_ID}`
-    );
+    const response = await api.get(`/search${URL_PATH}${page}&query=${query}`);
     return { data: response.data.results, total: response.data.total };
   }
 
-  const response = await api.get(
-    `/photos/?client_id=${CLIENT_ID}&per_page=30&page=${page}`
-  );
+  const response = await api.get(`${URL_PATH}${page}`);
   return { data: response.data, total: response.headers["x-total"] };
 };
 

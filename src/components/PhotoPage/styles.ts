@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 
 export const Image = css`
+  width: 100%;
   max-width: 500px;
   display: block;
   margin: 0 auto;
@@ -13,7 +14,13 @@ export const Info = css`
   width: 100%;
 
   span {
+    display: flex;
+    flex-direction: column;
     color: #767676;
+
+    strong {
+      color: initial;
+    }
   }
 `;
 

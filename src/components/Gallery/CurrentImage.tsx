@@ -7,7 +7,7 @@ export const CurrentImage = ({ item }: { item: GalleryTypes[] }) => {
     <>
       {item.map((imageItem) => (
         <Link to={`/${imageItem.slug}`} key={imageItem.id}>
-          <img css={S.CurrentImage} src={imageItem.urls.regular} alt="" />
+          <img css={S.CurrentImage} src={imageItem.urls.regular} alt={imageItem.slug} />
         </Link>
       ))}
     </>

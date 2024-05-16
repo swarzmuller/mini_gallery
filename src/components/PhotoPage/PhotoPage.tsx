@@ -3,44 +3,41 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getPhoto } from "@/api";
 import { ImagesLayoutBase } from "../ImagesLayout";
-import { User } from "./components/User";
-import { FotoInfoType } from "./types";
+import { Button } from "../GridSwitcher";
+import { PhotoInfo, User } from "./components";
+import { FotoInfoTypes } from "./types";
 import * as S from "./styles";
 
 export const PhotoPage = () => {
-  const [photoInfo, setPhotoInfo] = useState<FotoInfoType>();
+  const [photoInfo, setPhotoInfo] = useState<FotoInfoTypes>();
+  const [error, setError] = useState("");
   const { pathname } = useLocation();
+
   useEffect(() => {
-    getPhoto(pathname.replace("/", "")).then((data) => setPhotoInfo(data));
+    getPhoto(pathname.replace("/", ""))
+      .then((data) => setPhotoInfo(data))
+      .catch((error) => setError(error.message));
   }, [pathname]);
 
-  console.log(photoInfo);
+  if (error || !photoInfo) return <h1 css={{ textAlign: "center" }}>{error || 'Loading...'}</h1>;
 
-  if (!photoInfo) return <div>Loading...</div>;
+  const { user, urls, views, downloads, likes, description, tags } = photoInfo;
+
   return (
     <ImagesLayoutBase>
-      <Link to="/">Back</Link>
-      <User user={photoInfo.user} />
-      <img css={S.Image} src={photoInfo.urls.regular} alt="" />
-      <div css={S.Info}>
-        <span>
-          Views <br />
-          {photoInfo.views}
-        </span>
-        <span>
-          Downloads <br />
-          {photoInfo.downloads}
-        </span>
-        <span>
-          Likes <br />
-          {photoInfo.likes}
-        </span>
-      </div>
-      {photoInfo.description ? (
-        <p css={{ width: "100%" }}>{photoInfo.description}</p>
-      ) : null}
+      <Link css={Button} to="/">
+        Back
+      </Link>
+      <User user={user} />
+      <img css={S.Image} src={urls.regular} alt={description} />
+      <PhotoInfo
+        views={views}
+        downloads={downloads}
+        likes={likes}
+        description={description}
+      />
       <div css={S.Tag}>
-        {photoInfo.tags.map((tagItem) => {
+        {tags.map((tagItem) => {
           if (tagItem.type === "search") {
             return (
               <Link key={tagItem.title} to={`/?tag=${tagItem.title}`}>

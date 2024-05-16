@@ -19,3 +19,9 @@ export const Button = css`
     color: #111;
   }
 `;
+
+export const Switcher = css`
+  @media (max-width: 768px) {
+    display: none;
+  }
+`

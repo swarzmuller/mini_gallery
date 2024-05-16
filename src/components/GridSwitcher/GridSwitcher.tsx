@@ -7,7 +7,7 @@ export const GridSwitcher = () => {
   const { getValue, gridValue } = useContext(GridSwitcherContext);
 
   return (
-    <div>
+    <div css={S.Switcher}>
       <button
         onClick={() => getValue(GRID_COLUMNS_3)}
         className={GRID_COLUMNS_3 === gridValue ? "active" : ""}
