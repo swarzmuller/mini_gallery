@@ -8,10 +8,18 @@ export const GridSwitcher = () => {
 
   return (
     <div>
-      <button onClick={() => getValue(GRID_COLUMNS_3)} className={GRID_COLUMNS_3 === gridValue ? "active" : ""} css={S.Button}>
+      <button
+        onClick={() => getValue(GRID_COLUMNS_3)}
+        className={GRID_COLUMNS_3 === gridValue ? "active" : ""}
+        css={S.Button}
+      >
         3 columns
       </button>
-      <button onClick={() => getValue(GRID_COLUMNS_5)} className={GRID_COLUMNS_5 === gridValue ? "active" : ""} css={S.Button}>
+      <button
+        onClick={() => getValue(GRID_COLUMNS_5)}
+        className={GRID_COLUMNS_5 === gridValue ? "active" : ""}
+        css={S.Button}
+      >
         5 columns
       </button>
     </div>

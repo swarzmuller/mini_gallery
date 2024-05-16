@@ -1,2 +1,2 @@
-export {GridSwitcher} from './GridSwitcher'
-export * from './GridSwitcherContext'
+export { GridSwitcher } from "./GridSwitcher";
+export * from "./GridSwitcherContext";

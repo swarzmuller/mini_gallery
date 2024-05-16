@@ -1,3 +1,3 @@
-export * from './ImagesLayout';
-export * from './Gallery';
-export * from './PhotoPage';
+export * from "./ImagesLayout";
+export * from "./Gallery";
+export * from "./PhotoPage";

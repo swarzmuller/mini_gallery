@@ -8,8 +8,15 @@ export const Search = () => {
       <p css={S.Text}>The internet’s source for visuals</p>
       <p css={S.Text}>Powered by creators everywhere.</p>
       <form css={S.InputContainer}>
-        <button css={S.SearchBtn}><SearchIcon /></button>
-        <input css={S.Input} type="text" autoComplete="off" placeholder="Search high-resolution images" />
+        <button css={S.SearchBtn}>
+          <SearchIcon />
+        </button>
+        <input
+          css={S.Input}
+          type="text"
+          autoComplete="off"
+          placeholder="Search high-resolution images"
+        />
         <button css={S.RemoveBtn} type="reset"></button>
       </form>
     </div>

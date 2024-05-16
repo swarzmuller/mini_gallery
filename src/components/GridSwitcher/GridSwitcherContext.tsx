@@ -9,12 +9,20 @@ export const GridSwitcherContext = createContext<GridSwitcherContextType>({
   },
 });
 
-export const GridSwitcherProvider = ({ children }: { children: React.ReactNode }) => {
+export const GridSwitcherProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   const [gridValue, setGridValue] = useState(GRID_COLUMNS_3);
 
-  const getValue = (value:  number) => {
+  const getValue = (value: number) => {
     setGridValue(value);
   };
 
-  return <GridSwitcherContext.Provider value={{ gridValue, getValue }}>{children}</GridSwitcherContext.Provider>;
+  return (
+    <GridSwitcherContext.Provider value={{ gridValue, getValue }}>
+      {children}
+    </GridSwitcherContext.Provider>
+  );
 };

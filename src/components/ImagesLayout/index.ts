@@ -1,2 +1,2 @@
-export {ImagesLayout} from './ImagesLayout'
-export {ImagesLayoutBase} from './ImagesLayoutBase'
+export { ImagesLayout } from "./ImagesLayout";
+export { ImagesLayoutBase } from "./ImagesLayoutBase";

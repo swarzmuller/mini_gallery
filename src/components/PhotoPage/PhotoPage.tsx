@@ -36,7 +36,9 @@ export const PhotoPage = () => {
           {photoInfo.likes}
         </span>
       </div>
-      {photoInfo.description ? <p css={{ width: "100%" }}>{photoInfo.description}</p> : null}
+      {photoInfo.description ? (
+        <p css={{ width: "100%" }}>{photoInfo.description}</p>
+      ) : null}
       <div css={S.Tag}>
         {photoInfo.tags.map((tagItem) => {
           if (tagItem.type === "search") {

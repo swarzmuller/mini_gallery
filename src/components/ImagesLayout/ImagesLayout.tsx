@@ -18,13 +18,13 @@ export const ImagesLayout = () => {
   const [searchParams] = useSearchParams();
   const groups = galleryList ? splitIntoGroups(galleryList, gridValue) : null;
 
-  const param = searchParams.get("tag")
+  const param = searchParams.get("tag");
 
   useEffect(() => {
     getList(page, param || undefined).then((result) => {
       const { data, total } = result;
 
-      console.log(result)
+      console.log(result);
       setGalleryList(data);
       setTotal(total);
     });
@@ -38,7 +38,16 @@ export const ImagesLayout = () => {
     <ImagesLayoutBase>
       <Search />
       <GridSwitcher />
-      <ReactPaginate css={S.Pagination} breakLabel="..." nextLabel=">" onPageChange={handlePageClick} pageRangeDisplayed={1} pageCount={Math.ceil(total / 30)} previousLabel="<" renderOnZeroPageCount={null} />
+      <ReactPaginate
+        css={S.Pagination}
+        breakLabel="..."
+        nextLabel=">"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={1}
+        pageCount={Math.ceil(total / 30)}
+        previousLabel="<"
+        renderOnZeroPageCount={null}
+      />
       <Gallery groups={groups} />
     </ImagesLayoutBase>
   );

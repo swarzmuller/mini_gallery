@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { GalleryTypes } from "./types";
-import * as S from './styles'
+import * as S from "./styles";
 
 export const CurrentImage = ({ item }: { item: GalleryTypes[] }) => {
   return (
