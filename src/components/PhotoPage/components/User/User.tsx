@@ -1,6 +1,6 @@
-import { FotoInfoType } from "../../types";
+import { FotoInfoTypes } from "../../types";
 
-export const User = ({ user }: Pick<FotoInfoType, "user">) => {
+export const User = ({ user }: Pick<FotoInfoTypes, "user">) => {
   const { name, profile_image } = user;
   return (
     <div
