@@ -52,8 +52,8 @@ export const ImagesLayout = () => {
     <ImagesLayoutBase>
       <Search onChange={handleChange} onSubmit={handleSubmit} />
       <GridSwitcher />
-      {error || !galleryList?.length ? (
-        <h1 css={{ width: "100%" }}>{error || 'No Results!'}</h1>
+      {error ? (
+        <h1 css={{ width: "100%" }}>{error}</h1>
       ) : (
         <>
           <ReactPaginate
